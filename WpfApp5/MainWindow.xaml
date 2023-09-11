@@ -5,92 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="375" Width="620">
+        Title="MainWindow" Height="425" Width="620">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-            <TextBlock Margin="15,0,0,0" >Speed: 0 chars/min</TextBlock>
-            <TextBlock Margin="50,0,0,0" >Fails 0</TextBlock>
-            <TextBlock Margin="50,0,0,0" >Difficulty: 5</TextBlock>
-            <Slider Margin="5,0,0,0" SelectionEnd="10.0" Orientation="Horizontal" MinWidth="100"></Slider>
-            <CheckBox>Case Sensetive</CheckBox>
-        </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="450,30,0,0" HorizontalAlignment="Right"  VerticalAlignment="Center" MinWidth="50" >Start</Button>
-                <Button Margin="15,30,0,0" HorizontalAlignment="Right"  VerticalAlignment="Center" MinWidth="50">Stop</Button>
+                <TextBlock Margin="15,0,0,0" >Speed: 0 chars/min</TextBlock>
+                <TextBlock Name="fail" Margin="50,0,0,0" >Fails 0</TextBlock>
+                <TextBlock Name="dif" Margin="50,0,0,0" >Difficulty: 1</TextBlock>
+                <Slider Name="slider"  Margin="5,0,0,0" IsSnapToTickEnabled="True" TickFrequency="1" Minimum="0" Maximum="4" Orientation="Horizontal" MinWidth="100" ValueChanged="Slider_ValueChanged"></Slider>
             </StackPanel>
-            <TextBox Margin="0,15,0,0" MinHeight="50" Background="AliceBlue" IsReadOnly="True"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="450,30,0,0" HorizontalAlignment="Right"  VerticalAlignment="Center" MinWidth="50" Click="Button_Click" >Start</Button>
+                <Button Margin="15,30,0,0" HorizontalAlignment="Right"  VerticalAlignment="Center" MinWidth="50" Click="Button_Click_3">Stop</Button>
+            </StackPanel>
+            <TextBox FontSize="16" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" MaxHeight="100" Name="text" Margin="0,15,0,0" MinHeight="100" Background="AliceBlue" IsReadOnly="True"></TextBox>
             <StackPanel Name="k1" Orientation="Horizontal">
-                <Button Content="`" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14"></Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">1</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">2</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">3</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">4</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">5</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">6</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">7</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">8</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">9</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">0</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">-</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">=</Button>
-                <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="70" FontSize="14">BackSpace</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">`</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">1</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">2</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">3</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">4</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">5</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">6</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">7</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">8</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">9</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">0</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">-</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">=</Button>
+                <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="70" FontSize="14" Click="Button_Click_2">BackSpace</Button>
             </StackPanel>
             <StackPanel Name="k2"  Orientation="Horizontal">
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Tab</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">q</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">w</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">e</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">r</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">t</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">y</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">u</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">i</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">o</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">p</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">[</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">]</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">\</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14" >q</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">w</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">e</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">r</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">t</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">y</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">u</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">i</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">o</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">p</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">[</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">]</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">\</Button>
             </StackPanel>
             <StackPanel Name="k3" Orientation="Horizontal">
                 <Button Name="Caps" Background="Silver" Margin="5" MinHeight="30" MinWidth="75" FontSize="14" Click="Caps_Click">Caps Lock</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">a</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">s</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">d</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">f</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">g</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">h</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">j</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">k</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">l</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">;</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">'</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">a</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">s</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">d</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">f</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">g</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">h</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">j</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">k</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">l</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">;</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">'</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="65" FontSize="14">Enter</Button>
             </StackPanel>
             <StackPanel Name="k4"  Orientation="Horizontal">
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="90" FontSize="14" PreviewMouseDown ="Shift_Click" PreviewMouseUp="Shift_Up" PreviewKeyDown="Shift_Click" PreviewKeyUp="Shift_Up" >Shift</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">z</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">x</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">c</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">v</Button>
-                <Button Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">b</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">n</Button>
-                <Button Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">m</Button>
-                <Button Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">,</Button>
-                <Button Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">.</Button>
-                <Button Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">/</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">z</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">x</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">c</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">v</Button>
+                <Button Click="Button_Click_1" Background="SkyBlue" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">b</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">n</Button>
+                <Button Click="Button_Click_1" Background="Violet" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">m</Button>
+                <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">,</Button>
+                <Button Click="Button_Click_1" Background="Yellow" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">.</Button>
+                <Button Click="Button_Click_1" Background="LimeGreen" Margin="5" MinHeight="30" MinWidth="30" FontSize="14">/</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="90" FontSize="14" PreviewMouseDown ="Shift_Click" PreviewMouseUp="Shift_Up" PreviewKeyDown="Shift_Click" PreviewKeyUp="Shift_Up" >Shift</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Ctrl</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Win</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Alt</Button>
-                <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="230" FontSize="14">Spase</Button>
+                <Button Click="Button_Click_1" Background="Silver" Margin="5" MinHeight="30" MinWidth="230" FontSize="14">Space</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Alt</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Win</Button>
                 <Button Background="Silver" Margin="5" MinHeight="30" MinWidth="50" FontSize="14">Ctrl</Button>
-
-                
             </StackPanel>
         </StackPanel>
     </Grid>
