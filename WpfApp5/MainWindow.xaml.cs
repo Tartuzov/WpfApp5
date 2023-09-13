@@ -179,7 +179,6 @@ namespace WpfApp5
                 text.Text = "Proin neque neque, viverra ac enim ut, vestibulum condimentum ante. Ut eget libero posuere, mattis tellus sit amet, posuere turpis. Aliquam molestie, eros quis efficitur pulvinar, leo dolor sodales magna, quis ornare odio leo in quam. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas mattis congue ipsum quis egestas.";
             else if (cl == 4)
                 text.Text = "Nulla sit amet quam auctor, efficitur dui at, consequat velit. Nunc ut magna tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan at sem ut malesuada. Aliquam vitae dapibus sem. Ut vehicula vitae ipsum id sodales. Vivamus eu diam eget libero rutrum viverra. Quisque semper odio vel nisi placerat, eu pharetra eros cursus. Proin eget eleifend libero. Pellentesque maximus nulla et fermentum egestas. Vivamus ex risus, semper ut lobortis vel, condimentum a tortor. Etiam at diam vel orci interdum hendrerit nec a nunc. Suspendisse potenti.";
-
         }
         public void Check(char a)
         {
@@ -214,8 +213,8 @@ namespace WpfApp5
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //if (text.Text[Alltext.Count()] != Alltext[Alltext.Count - 1])
-            //{ }
+            if(Alltext.Count() > 0)
+                Alltext=Alltext.Remove(Alltext.Length-1);
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
