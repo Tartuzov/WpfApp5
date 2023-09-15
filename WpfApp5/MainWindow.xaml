@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
         Title="MainWindow" Height="425" Width="620">
-    <Grid>
-        <StackPanel>
+    <Grid KeyUp="grid1_KeyUp" KeyDown="Grid_KeyDown" Name="grid1" PreviewKeyDown="grid1_PreviewKeyDown" PreviewKeyUp="grid1_PreviewKeyUp">
+        <StackPanel Name="sp1">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="15,0,0,0" >Speed: 0 chars/min</TextBlock>
+                <TextBlock Name="speed"  Margin="15,0,0,0" >Speed: 0 chars/min</TextBlock>
                 <TextBlock Name="fail" Margin="50,0,0,0" >Fails 0</TextBlock>
                 <TextBlock Name="dif" Margin="50,0,0,0" >Difficulty: 1</TextBlock>
                 <Slider Name="slider"  Margin="5,0,0,0" IsSnapToTickEnabled="True" TickFrequency="1" Minimum="0" Maximum="4" Orientation="Horizontal" MinWidth="100" ValueChanged="Slider_ValueChanged"></Slider>
